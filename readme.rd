@@ -1,47 +1,52 @@
-Audio Transcription from Video using Python
-Overview
-このプロジェクトは、与えられたビデオファイルから音声を抽出し、その音声を文字に変換（文字起こし）するPythonスクリプトです。並列処理を活用して高速に文字起こしを行います。
+# Audio Transcription from Video using Python
 
-Requirements
-Python 3.x
-FFmpeg
-pydub
-speech_recognition
-concurrent.futures (Python Standard Library)
-Installation
-Python Dependencies
-Pythonの依存関係をインストールするには、以下のコマンドを実行してください。
+## Overview
+This project contains a Python script that extracts audio from a given video file and transcribes the audio to text. It utilizes parallel processing for faster transcription.
 
-bash
-Copy code
+## Requirements
+- Python 3.x
+- FFmpeg
+- pydub
+- speech_recognition
+- concurrent.futures (Python Standard Library)
+
+## Installation
+
+### Python Dependencies
+To install the Python dependencies, run the following commands:
+
+```bash
 pip install pydub
 pip install SpeechRecognition
-FFmpeg
-このプロジェクトでは、ビデオファイルから音声を抽出するためにFFmpegが必要です。FFmpegのインストール方法はプラットフォームによって異なります。
+```
 
-macOS:
+### FFmpeg
+FFmpeg is required for extracting audio from the video file. Installation varies by platform.
 
-bash
-Copy code
-brew install ffmpeg
-Ubuntu:
+- **macOS**: 
+  ```bash
+  brew install ffmpeg
+  ```
 
-bash
-Copy code
-sudo apt-get install ffmpeg
-Windows:
-公式サイトからダウンロードしてインストール: FFmpeg Official Website
+- **Ubuntu**: 
+  ```bash
+  sudo apt-get install ffmpeg
+  ```
 
-Usage
-スクリプトと同じディレクトリにビデオファイル（your_large_video_file.mp4）を配置します。
+- **Windows**: 
+  Download and install from the official website: [FFmpeg Official Website](https://www.ffmpeg.org/download.html)
 
-スクリプトを実行します。
+## Usage
 
-bash
-Copy code
-python your_script_name.py
-How it Works
-extract_audio_from_video関数でビデオから音声を抽出します。
-split_audio関数で音声を小片に分割します。
-ThreadPoolExecutorを使用して並列に音声を文字に変換します。
-すべての変換結果をインデックスに基づいてソートし、最終的な文字起こしテキストを生成します。
+1. Place the video file (`your_large_video_file.mp4`) in the same directory as the script.
+  
+2. Run the script.
+    ```bash
+    python your_script_name.py
+    ```
+
+## How it Works
+1. `extract_audio_from_video` function is used to extract audio from the video.
+2. `split_audio` function is used to split the audio into segments.
+3. `ThreadPoolExecutor` is used for parallelizing the audio-to-text conversion.
+4. All conversion results are sorted based on index to generate the final transcribed text.
