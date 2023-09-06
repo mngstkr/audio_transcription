@@ -66,5 +66,9 @@ if __name__ == "__main__":
 
     # 全体の文字起こしを生成
     full_transcription = ' '.join(sorted_transcriptions)
-    print("全文の文字起こし:")
-    print(full_transcription)
+    # 文字起こしの結果をテキストファイルに保存
+    with open('transcription_result.txt', 'w', encoding='utf-8') as f:
+        f.write(full_transcription)
+
+    print("文字起こし&ファイル保存完了")
+
